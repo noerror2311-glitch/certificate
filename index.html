@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate Maker – Love, Best Friend & More</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Dancing+Script:wght@500;700&family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>💌 Certificate Maker</h1>
+  <p>Pick a certificate, make it yours, download it as a PDF.</p>
+</header>
+
+<main class="layout">
+
+  <!-- ============ EDITOR ============ -->
+  <section class="panel" id="editor">
+
+    <h2>1. Choose a certificate</h2>
+    <div class="types" id="types"></div>
+
+    <h2>2. Edit the details</h2>
+
+    <label>Certificate title
+      <input type="text" id="inTitle" maxlength="40">
+    </label>
+
+    <label>Small line above the name
+      <input type="text" id="inSub" maxlength="60">
+    </label>
+
+    <label>Recipient name
+      <input type="text" id="inName" maxlength="40">
+    </label>
+
+    <label>Message
+      <textarea id="inMsg" rows="4" maxlength="260"></textarea>
+    </label>
+
+    <div class="row">
+      <label>From (signature)
+        <input type="text" id="inFrom" maxlength="30">
+      </label>
+      <label>Date
+        <input type="text" id="inDate" maxlength="30">
+      </label>
+    </div>
+
+    <label>Seal / emoji
+      <input type="text" id="inSeal" maxlength="4">
+    </label>
+
+    <label>Photo (optional)
+      <input type="file" id="inPhoto" accept="image/*">
+    </label>
+    <button type="button" class="link-btn" id="removePhoto" hidden>Remove photo</button>
+
+    <h2>3. Style it</h2>
+
+    <label>Colour theme</label>
+    <div class="swatches" id="themes"></div>
+
+    <div class="row">
+      <label>Border style
+        <select id="inBorder">
+          <option value="classic">Classic</option>
+          <option value="double">Double line</option>
+          <option value="dotted">Dotted</option>
+          <option value="hearts">Hearts corners</option>
+          <option value="floral">Floral corners</option>
+        </select>
+      </label>
+      <label>Name font
+        <select id="inFont">
+          <option value="'Great Vibes', cursive">Great Vibes</option>
+          <option value="'Dancing Script', cursive">Dancing Script</option>
+          <option value="'Caveat', cursive">Caveat</option>
+          <option value="'Playfair Display', serif">Playfair</option>
+          <option value="'Cinzel', serif">Cinzel</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn primary" id="btnPdf">⬇ Download PDF</button>
+      <button type="button" class="btn" id="btnPng">🖼 Download Image</button>
+      <button type="button" class="btn ghost" id="btnReset">↺ Reset</button>
+    </div>
+    <p class="status" id="status"></p>
+  </section>
+
+  <!-- ============ PREVIEW ============ -->
+  <section class="preview">
+    <h2 class="preview-title">Live preview</h2>
+    <div class="stage-wrap" id="stageWrap">
+      <div class="stage" id="stage">
+
+        <div class="cert" id="cert" data-border="classic">
+          <div class="frame">
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+
+            <div class="deco" id="cDeco">✦ ✦ ✦</div>
+            <h1 class="c-title" id="cTitle"></h1>
+            <p class="c-sub" id="cSub"></p>
+            <div class="c-photo" id="cPhoto" hidden><img id="cPhotoImg" alt=""></div>
+            <h2 class="c-name" id="cName"></h2>
+            <div class="c-line"></div>
+            <p class="c-msg" id="cMsg"></p>
+
+            <div class="c-footer">
+              <div class="c-col"><span class="c-val" id="cDate"></span><span class="c-lbl">Date</span></div>
+              <div class="c-seal" id="cSeal"></div>
+              <div class="c-col"><span class="c-val sig" id="cFrom"></span><span class="c-lbl">Signed</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <p class="hint">The PDF will look exactly like this preview.</p>
+  </section>
+
+</main>
+
+<footer class="foot">Made with 💖 · HTML, CSS &amp; JavaScript</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
